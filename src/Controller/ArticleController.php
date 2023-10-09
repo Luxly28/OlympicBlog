@@ -7,9 +7,12 @@ use App\Form\ArticleType;
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
+use Symfony\Component\Serializer\SerializerInterface;
 
 #[Route('/article')]
 class ArticleController extends AbstractController
@@ -53,6 +56,7 @@ class ArticleController extends AbstractController
         ]);
     }
 
+    #[IsGranted ('EDIT', 'article', 'article non trouvé', 404)]
     #[Route('/{id}/edit', name: 'app_article_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Article $article, EntityManagerInterface $entityManager): Response
     {
@@ -80,5 +84,12 @@ class ArticleController extends AbstractController
         }
 
         return $this->redirectToRoute('app_article_index', [], Response::HTTP_SEE_OTHER);
+    }
+
+    #[Route('article/showapi/{id}', name: 'app_showapi', methods: ['GET'])]
+    public function showApi(Article $article, SerializerInterface $serializer): JsonResponse
+    {
+        $jsonContent = $serializer->serialize($article, 'json',['groups' => ['article']]);
+        return new JsonResponse($jsonContent);
     }
 }

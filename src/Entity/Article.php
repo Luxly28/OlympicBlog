@@ -5,8 +5,12 @@ namespace App\Entity;
 use App\Repository\ArticleRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
+use ApiPlatform\Metadata\ApiResource;
 
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
+#[ApiResource]
+
 class Article
 {
     #[ORM\Id]
@@ -16,7 +20,7 @@ class Article
 
     #[ORM\Column(length: 255)]
     private ?string $titre = null;
-
+ 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $contenu = null;
 
@@ -24,6 +28,7 @@ class Article
     private ?\DateTimeInterface $date = null;
 
     #[ORM\ManyToOne(inversedBy: 'LesArticles')]
+    #[groups (['article'])]
     private ?User $user = null;
 
     #[ORM\ManyToOne(inversedBy: 'LesCategories')]

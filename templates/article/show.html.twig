@@ -3,32 +3,84 @@
 {% block title %}Article{% endblock %}
 
 {% block body %}
-    <h1>Article</h1>
+    <section class="page-title bg-2">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="block">
+          <h1>{{ article.titre }}</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, quibusdam.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ article.id }}</td>
-            </tr>
-            <tr>
-                <th>Titre</th>
-                <td>{{ article.titre }}</td>
-            </tr>
-            <tr>
-                <th>Contenu</th>
-                <td>{{ article.contenu }}</td>
-            </tr>
-            <tr>
-                <th>Date</th>
-                <td>{{ article.date ? article.date|date('d-m-Y') : '' }}</td>
-            </tr>
-        </tbody>
-    </table>
+<section class="page-wrapper">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="post post-single">
+					<h2 class="post-title">{{ article.titre }}</h2>
+					<div class="post-meta">
+						<ul>
+							<li>
+								<i class="ion-calendar"></i>{{ article.date ? article.date|date('d-m-Y') : '' }}
+							</li>
+							<li>
+								<i class="ion-android-people"></i>Posté par {{article.user}}
+							</li>
+							<li>
+								<a href="blog-grid.html"><i class="ion-pricetags"></i> {{article.categorie}}
+							</li>
 
-    <a href="{{ path('app_article_index') }}">back to list</a>
+						</ul>
+					</div>
+					<div class="post-thumb">
+						<img class="img-fluid" src="images/blog/blog-post-1.jpg" alt="">
+					</div>
+					<div class="post-content post-excerpt">
+						<p>{{ article.contenu }}</p>
+						
+					</div>
+					
+			</div>
+		</div>
+	</div>
+        <a href="{{ path('app_article_index') }}">back to list</a>
 
+    {% if is_granted('POST_EDIT', article)%}
     <a href="{{ path('app_article_edit', {'id': article.id}) }}">edit</a>
-
+    {% endif %}
     {{ include('article/_delete_form.html.twig') }}
+</section>
+
+<!-- footer Start -->
+<footer class="footer">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="footer-manu">
+					<ul>
+						<li><a href="about.html">About Us</a></li>
+						<li><a href="contact.html">Contact us</a></li>
+						<li><a href="service.html">How it works</a></li>
+						<li><a href="faq.html">FAQ</a></li>
+						<li><a href="pricing.html">Pricing</a></li>
+					</ul>
+				</div>
+				<p class="copyright mb-0">Copyright <script>document.write(new Date().getFullYear())</script> &copy; Designed & Developed by <a
+						href="http://www.themefisher.com">Themefisher</a>. All rights reserved.
+					<br> Get More <a href="https://themefisher.com/free-bootstrap-templates/">Free Bootstrap
+						Templates</a>
+				</p>
+                
+			</div>
+            
+
+		</div>
+	</div>
+</footer>
+
+
 {% endblock %}
