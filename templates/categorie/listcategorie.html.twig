@@ -1,0 +1,9 @@
+{% for categorie in categories %}
+
+    <a href="{{ path('app_categorie_index', {'id': categorie.id}) }}">
+
+        {{ categorie.libelle }}
+
+    </a>
+
+{% endfor %}
