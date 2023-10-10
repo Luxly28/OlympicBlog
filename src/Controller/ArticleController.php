@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use App\Entity\Categorie;
 use App\Form\ArticleType;
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -56,7 +57,7 @@ class ArticleController extends AbstractController
         ]);
     }
 
-    #[IsGranted ('EDIT', 'article', 'article non trouvé', 404)]
+    // #[IsGranted ('EDIT', 'article', 'article non trouvé', 404)]
     #[Route('/{id}/edit', name: 'app_article_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Article $article, EntityManagerInterface $entityManager): Response
     {
@@ -91,5 +92,20 @@ class ArticleController extends AbstractController
     {
         $jsonContent = $serializer->serialize($article, 'json',['groups' => ['article']]);
         return new JsonResponse($jsonContent);
+    }
+
+
+    #[Route('categorie/{slug}/article', name: 'app_article_categorie', methods: ['GET'])]
+
+    public function articlecategorie(ArticleRepository $articleRepository, Categorie $categorie): Response
+
+    {
+
+        return $this->render('article/index.html.twig', [
+
+            'articles' => $articleRepository->findByCategorie($categorie)
+
+        ]);
+
     }
 }

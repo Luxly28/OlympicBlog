@@ -820,7 +820,7 @@ ul.dropdown-menu li {
   }
 }
 .slider {
-  background: url("../images/backgroundwatch.jpg") no-repeat;
+  background: url("../images/rotor.jpg") no-repeat;
   background-size: cover;
   background-attachment: fixed;
   background-position: 10% 0%;
@@ -2080,14 +2080,14 @@ ul.dropdown-menu li {
 }
 
 .bg-1 {
-  background-image: url("../images/backgroundwatch.jpg");
+  background-image: url("../images/rotor.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
 .bg-2 {
-  background: url("../images/backgroundwatch.jpg");
+  background: url("../images/rotor.jpg");
   background-size: cover;
   background-attachment: fixed;
 }
@@ -2264,7 +2264,7 @@ ul.dropdown-menu li {
 }
 
 .coming-soon {
-  background: url("../images/backgroundwatch.jpg");
+  background: url("../images/rotor.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   color: #fff;

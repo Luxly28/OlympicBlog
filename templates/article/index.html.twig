@@ -43,6 +43,9 @@
     {% if is_granted('POST_EDIT', article)%}
     <a href="{{ path('app_article_edit', {'id': article.id}) }}">edit</a>
     {% endif %}
+    {% if is_granted('POST_DELETE', article)%}
+	{{ include('article/_delete_form.html.twig') }}
+	{% endif %}
   </div>
         {% else %}
             <tr>

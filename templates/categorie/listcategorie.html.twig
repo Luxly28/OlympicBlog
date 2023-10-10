@@ -1,6 +1,6 @@
 {% for categorie in categories %}
 
-    <a href="{{ path('app_categorie_index', {'id': categorie.id}) }}">
+    <a href="{{ path('app_article_categorie', {'slug': categorie.slug}) }}">
 
         {{ categorie.libelle }}
 

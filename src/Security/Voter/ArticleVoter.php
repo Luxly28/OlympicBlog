@@ -10,6 +10,7 @@ class ArticleVoter extends Voter
 {
     public const EDIT = 'POST_EDIT';
     public const VIEW = 'POST_VIEW';
+    public const DELETE = 'POST_DELETE';
 
     protected function supports(string $attribute, mixed $subject): bool
     {
@@ -38,11 +39,11 @@ class ArticleVoter extends Voter
                 // logic to determine if the user can VIEW
                 // return true or false
                 break;
-            // case self::DELETE:
-            //     return $user === $subject->getUser();
-            //     // logic to determine if the user can EDIT
-            //     // return true or false
-            //     break;
+            case self::DELETE:
+                return $user === $subject->getUser();
+                // logic to determine if the user can DELETE
+                // return true or false
+                break;
             
         }
 
