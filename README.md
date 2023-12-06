@@ -164,7 +164,6 @@ $ install composer
 Pour que le tout soit bien sécuriser on va héberger notre base de données dans une autre vm Donc crée une autre vm debian et installe mariadb:
 
  ```
-
 $ apt install mariadb-server mariadb-client -y
 $ mysql
 $ CREATE USER 'metacloud'@'%' IDENTIFIED BY 'Blog';
