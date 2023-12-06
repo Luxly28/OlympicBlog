@@ -129,13 +129,11 @@ Pour pouvoir utiliser le code du Blog, on va cloner le code.
 
 On procède d'abord à l'installation de git :
  ```
-
 $ sudo apt install git -y
  ```
 
 On clonera ensuite le code source dans le dossier var/www/html :
  ```
-
 $ git clone https://github.com/Luxly28/Blog1.git
  ```
 
