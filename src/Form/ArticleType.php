@@ -20,7 +20,7 @@ class ArticleType extends AbstractType
             ->add('date',DateType::class, [
                 'widget' => 'single_text',
                 ])
-            ->add('user')
+            
             ->add('categorie')
         ;
     }

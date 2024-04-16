@@ -294,7 +294,12 @@ input[type=tel]:focus {
   font-size: 28px;
   font-weight: 600;
   margin-bottom: 30px;
+  color: #000;
 }
+.paragraph-style {
+  color: black; /* Remplacez "blue" par la couleur de votre choix */
+}
+
 
 .page-title {
   padding: 100px 0;
@@ -820,7 +825,7 @@ ul.dropdown-menu li {
   }
 }
 .slider {
-  background: url("../images/rotor.jpg") no-repeat;
+  background: url("../images/background.png") no-repeat;
   background-size: cover;
   background-attachment: fixed;
   background-position: 10% 0%;
@@ -2080,14 +2085,14 @@ ul.dropdown-menu li {
 }
 
 .bg-1 {
-  background-image: url("../images/rotor.jpg");
+  background-image: url("../images/background.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
 .bg-2 {
-  background: url("../images/rotor.jpg");
+  background: url("../images/background.png");
   background-size: cover;
   background-attachment: fixed;
 }
@@ -2264,7 +2269,7 @@ ul.dropdown-menu li {
 }
 
 .coming-soon {
-  background: url("../images/rotor.jpg");
+  background: url("../images/background.png");
   background-repeat: no-repeat;
   background-size: cover;
   color: #fff;

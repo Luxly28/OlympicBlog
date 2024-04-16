@@ -39,7 +39,6 @@
   <div class="post-content">
     <p>{{ article.contenu }}</p>
     <a class="btn btn-main" href="{{ path('app_article_show', {'id': article.id}) }}">Continue Reading</a>
-    <a class="btn btn-main" href="{{ path('app_showapi', {'id': article.id}) }}">API</a>
     {% if is_granted('POST_EDIT', article)%}
     <a href="{{ path('app_article_edit', {'id': article.id}) }}">edit</a>
     {% endif %}

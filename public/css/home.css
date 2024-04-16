@@ -17,7 +17,7 @@
   width: 100%;
   position: relative;
   overflow: hidden;
-  background-image: url("../images/rotor.jpg");
+  background-image: url("../images/background.png");
   background-size: cover;
   background-attachment: fixed;
 }
